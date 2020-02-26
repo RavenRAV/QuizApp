@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         bottomNavigationView.getMenu().findItem(R.id.first).setChecked(true);
                         break;
@@ -44,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment fragment = null;
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.first:
                             viewPager.setCurrentItem(0);
                             return true;

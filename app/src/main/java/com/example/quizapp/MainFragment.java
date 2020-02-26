@@ -43,13 +43,6 @@ public class MainFragment extends Fragment {
         mFragVM = ViewModelProviders
                 .of(getActivity())
                 .get(MainViewModel.class);
-//
-//        mFragVM.listMutableLiveData.observe(getActivity(), new Observer<ArrayList<Integer>>() {
-//            @Override
-//            public void onChanged(ArrayList<Integer> strings) {
-//                mCounterTV.setText();
-//            }
-//        });
         mFragVM.counter.observe(getActivity(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
@@ -57,16 +50,6 @@ public class MainFragment extends Fragment {
             }
         });
     }
-
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onChanged(Integer integer) {
-//                if (integer != null) {
-//
-//                }
-//            }
-//        });
-
 
         private void initView () {
             mCounterTV = v.findViewById(R.id.counter);

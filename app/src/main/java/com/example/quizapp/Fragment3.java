@@ -21,12 +21,10 @@ import java.util.ArrayList;
 public class Fragment3 extends Fragment {
     private MainViewModel mainViewModel;
     private RecyclerFragmentAdapter recyclerFragmentAdapter;
-//String  abc;
-//ArrayList<String> asd= new ArrayList<>();
+
     public Fragment3() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -35,7 +33,6 @@ public class Fragment3 extends Fragment {
         final RecyclerView recyclerView = v.findViewById(R.id.recyclerview);
         recyclerFragmentAdapter = new RecyclerFragmentAdapter();
         recyclerView.setAdapter(recyclerFragmentAdapter);
-
 
         mainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
         mainViewModel.counter.observe(getActivity(), new Observer<Integer>() {

@@ -15,13 +15,6 @@ public class RecyclerFragmentAdapter extends RecyclerView.Adapter<RecyclerFragme
 
     ArrayList<String> countRV = new ArrayList<>();
 
-
-
-//    public RecyclerFragmentAdapter() {
-//
-//        countRV = new ArrayList<>();
-//        Log.d("ololo", "RecyclerFragmentAdapter: "+countRV);
-//    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,13 +31,11 @@ public class RecyclerFragmentAdapter extends RecyclerView.Adapter<RecyclerFragme
     public int getItemCount() {
         return countRV.size();
     }
+
     public void addText(String t) {
         countRV.add(t);
         notifyDataSetChanged();
     }
-//    public void addText2(String list ){
-//        this.countRV=list;
-//    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;

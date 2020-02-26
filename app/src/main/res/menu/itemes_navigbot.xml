@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/first"
+        android:icon="@drawable/explore_active"
+        android:title="first"/>
+    <item
+        android:id="@+id/second"
+        android:icon="@drawable/map_inactive"
+        android:title="second"/>
+    <item
+        android:id="@+id/third"
+        android:icon="@drawable/profile_inactive"
+        android:title="third"/>
+
+</menu>

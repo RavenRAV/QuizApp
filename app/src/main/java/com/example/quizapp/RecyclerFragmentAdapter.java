@@ -1,6 +1,5 @@
 package com.example.quizapp;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,29 +11,32 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RecyclerFragmentAdapter extends RecyclerView.Adapter<RecyclerFragmentAdapter.ViewHolder> {
+    private ArrayList<String> countRV;
 
-    ArrayList<String> countRV = new ArrayList<>();
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_history, parent, false));
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(countRV.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
-        return countRV.size();
+    public RecyclerFragmentAdapter() {
+        countRV = new ArrayList<>();
     }
 
     public void addText(String t) {
         countRV.add(t);
         notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public RecyclerFragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new RecyclerFragmentAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_history, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerFragmentAdapter.ViewHolder holder, int position) {
+        holder.onBind(countRV.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return countRV.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -45,8 +47,8 @@ public class RecyclerFragmentAdapter extends RecyclerView.Adapter<RecyclerFragme
             textView = itemView.findViewById(R.id.item_textview);
         }
 
-        public void bind(String s) {
-            textView.setText(s);
+        public void onBind(String t) {
+            textView.setText(t);
         }
     }
 }

@@ -1,23 +1,16 @@
 package com.example.quizapp;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 public class MainFragment extends Fragment {
 
@@ -43,7 +36,7 @@ public class MainFragment extends Fragment {
         mFragVM = ViewModelProviders
                 .of(getActivity())
                 .get(MainViewModel.class);
-        mFragVM.counter.observe(getActivity(), new Observer<Integer>() {
+        mFragVM.counter.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
                 mCounterTV.setText(integer.toString());
@@ -51,20 +44,20 @@ public class MainFragment extends Fragment {
         });
     }
 
-        private void initView () {
-            mCounterTV = v.findViewById(R.id.counter);
-            v.findViewById(R.id.btn_increment).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mFragVM.onIncrementClick();
-                }
-            });
-            v.findViewById(R.id.btn_reduction).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mFragVM.onReductionClick();
-                }
-            });
-        }
+    private void initView() {
+        mCounterTV = v.findViewById(R.id.counter);
+        v.findViewById(R.id.btn_increment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFragVM.onIncrementClick();
+            }
+        });
+        v.findViewById(R.id.btn_reduction).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFragVM.onReductionClick();
+            }
+        });
     }
+}
 

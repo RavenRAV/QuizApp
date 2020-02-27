@@ -36,7 +36,7 @@ public class Fragment2 extends Fragment {
         fragVM = ViewModelProviders
                 .of(getActivity())
                 .get(MainViewModel.class);
-        fragVM.counter.observe(getActivity(), new Observer<Integer>() {
+        fragVM.counter.observe(this, new Observer<Integer>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(Integer integer) {
